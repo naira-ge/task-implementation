@@ -30,7 +30,9 @@ Promise.all([p1, p2, p3]).catch(() => {}).then(() => {}).then(() => {})
 */
  //Task implementation example 1
 
- let handle = document.getElementById('response');
+import Promifill from './implementPromise'
+
+let handle = document.getElementById('response');
 
 let ajaxRequest = function (url, method) {
 
@@ -38,7 +40,7 @@ let ajaxRequest = function (url, method) {
 	var request = new XMLHttpRequest();
 
 	// Return it as a Promise
-	return new Promise(function (resolve, reject) {
+	return new Promifill(function (resolve, reject) {
 
 		// Setup our listener to process compeleted requests
 		request.onreadystatechange = function () {
@@ -84,7 +86,7 @@ ajaxRequest('https://example.com/api/shoes')
 		handle.innerHTML = postData;
 	})
 	.catch(function (error) {
-		console.log('Something went wrong', error);
+		console.error('Something went wrong', error);
 	});
 
 
@@ -94,6 +96,7 @@ async function request(url) {
   var resp = await (
     new Promise( function(resolve,reject){
     var xhr = new XMLHttpRequest();
+	
     xhr.open( "GET", url );
     xhr.onreadystatechange = function(){
     if (xhr.readyState == 4) {
