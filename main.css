@@ -1,0 +1,12 @@
+#app{
+    position:relative;
+}
+
+#root{
+    position:absolute;
+    top:0;
+    right:0;
+    color:grey;
+    font-size:1rem;
+    font-weight:500;
+}
